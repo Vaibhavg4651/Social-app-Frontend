@@ -12,7 +12,7 @@ import {setdata,setisLoggedin} from '../Reducers/userSlice'
 
 const LoginPage = () => {
 	const [formData, setFormData] = useState({
-		username: "",
+		email: "",
 		password: "",
 	});
 	const dispatch=useDispatch()
@@ -22,7 +22,7 @@ const LoginPage = () => {
 		e.preventDefault();
       try {
         const res = await axios.post(`${URL}/login`, {
-          	email: formData.username,
+          	email: formData.email,
           	password: formData.password,
         });
         if(res.data.success===true){
@@ -62,10 +62,10 @@ const LoginPage = () => {
 						<input
 							type='text'
 							className='grow'
-							placeholder='username'
-							name='username'
+							placeholder='email'
+							name='email'
 							onChange={handleInputChange}
-							value={formData.username}
+							value={formData.email}
 						/>
 					</label>
 
